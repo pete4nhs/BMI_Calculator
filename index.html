@@ -1,0 +1,74 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>DES Playground</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@stlite/browser@0.77.0/build/style.css"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      import * as stlite from "https://cdn.jsdelivr.net/npm/@stlite/browser@0.76.0/build/stlite.js";
+      stlite.mount(
+  {
+    requirements: ["pandas", "numpy"],
+    entrypoint: "Introduction.py",
+    files: {
+      "Introduction.py": `
+
+# BMI calculator
+import streamlit as st
+
+# Title
+st.title("Interactive BMI Calculator")
+
+# Welcome message
+st.write("Welcome to this interactive BMI calculator. Let's start by giving us some basic information about you.")
+
+# Name input
+name = st.text_input("What's your name?")
+
+# Sliders for height and weight
+height = st.slider("What is your height? (in cm)", min_value=100, max_value=220, value=170)
+weight = st.slider("What is your weight? (in kg)", min_value=30, max_value=250, value=70)
+
+# Calculate BMI
+height_in_m = height / 100
+bmi = weight / (height_in_m ** 2)
+round_bmi = round(bmi, 1)
+
+# Display results if name is entered
+if st.button("Calculate", type="primary"):
+    with st.spinner("Running calculations..."):
+        st.write(f"Thanks for the information {name}!")
+        st.write(f"Based on your measurements, your BMI is **{round_bmi}**.")
+
+        # Interpretation
+        if bmi < 18:
+            st.warning(f"This means you are underweight {name}.")
+        elif bmi > 25:
+            st.warning(f"This means you are overweight {name}.")
+        else:
+            st.success(f"Your weight is normal for your height. Well done {name}!")
+
+
+
+      `
+      },
+  },
+  document.getElementById("root")
+);
+    </script>
+  </body>
+</html>
+ 
