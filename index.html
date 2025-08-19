@@ -9,7 +9,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>DES Playground</title>
+    <title>BMI Calculator</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@stlite/browser@0.77.0/build/style.css"
@@ -28,6 +28,11 @@
 
 # BMI calculator
 import streamlit as st
+
+st.set_page_config(
+ #  page_title="eFIT",
+    page_icon="https://www.england.nhs.uk/wp-content/themes/nhsengland/static/img/favicon.ico")
+
 
 # Title
 st.title("Interactive BMI Calculator")
@@ -63,7 +68,11 @@ if st.button("Calculate", type="primary"):
 
 
 
-      `
+      `,
+      "pages/2_About.py": {
+        url: "https://raw.githubusercontent.com/pete4nhs/BMI_Calculator/main/pages/2_About.py"
+      }
+      
       },
   },
   document.getElementById("root")
@@ -72,3 +81,4 @@ if st.button("Calculate", type="primary"):
   </body>
 </html>
  
+
