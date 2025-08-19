@@ -1,0 +1,6 @@
+import streamlit as st
+
+# This is to add in a title for our web app's page
+
+st.title('Methodology')
+st.write('This is an example')
