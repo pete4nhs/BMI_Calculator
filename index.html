@@ -21,10 +21,10 @@
       import * as stlite from "https://cdn.jsdelivr.net/npm/@stlite/browser@0.76.0/build/stlite.js";
       stlite.mount(
   {
-    requirements: ["pandas", "numpy"],
-    entrypoint: "Introduction.py",
+    requirements: ["pandas"],
+    entrypoint: "BMI_Calculator.py",
     files: {
-      "Introduction.py": `
+      "BMI_Calculator.py": `
 
 # BMI calculator
 import streamlit as st
@@ -80,3 +80,4 @@ if st.button("Calculate", type="primary"):
     </script>
   </body>
 </html>
+
